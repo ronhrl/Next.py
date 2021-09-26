@@ -1,4 +1,6 @@
 class Animal:
+    zoo_name = "Hayaton"
+
     def __init__(self, name, hunger=0):
         self._name = name
         self._hunger = hunger
@@ -54,10 +56,9 @@ class Cat(Animal):
 
 
 class Skunk(Animal):
-    def __init__(self, stink_count=6):
-        super().__init__(self)
+    def __init__(self, name, hunger, stink_count=6):
+        super().__init__(name, hunger)
         _stink_count = stink_count
-        print(_stink_count)
 
     def get_name(self):
         return super().get_name()
@@ -93,8 +94,8 @@ class Unicorn(Animal):
 
 
 class Dragon(Animal):
-    def __init__(self, color="Green"):
-        super().__init__(self)
+    def __init__(self, name, hunger, color="Green"):
+        super().__init__(name, hunger)
         _color = color
 
     def get_name(self):
@@ -119,7 +120,12 @@ def main():
     skunk = Skunk("Stinky", 0)
     unicorn = Unicorn("Keith", 7)
     dragon = Dragon("Lizzy", 1450)
-    zoo_lst = my_dog, cat, skunk, unicorn, dragon
+    dog_doggo = Dog("Doggo", 80)
+    cat_kitty = Cat("Kitty", 80)
+    skunk_stinky = Skunk("Stinky Jr.", 80)
+    unicorn_clair = Unicorn("Clair", 80)
+    dragon_mc = Dragon("McFly", 80)
+    zoo_lst = my_dog, cat, skunk, unicorn, dragon, dog_doggo, cat_kitty, skunk_stinky, unicorn_clair, dragon_mc
     for animal in zoo_lst:
         print(type(animal))
         print(animal.get_name())
@@ -137,5 +143,8 @@ def main():
         elif isinstance(animal, Dragon):
             animal.breath_fire()
 
+    print(Animal.zoo_name)
 
-main()
+
+if __name__ == "__main__":
+    main()
